@@ -1,11 +1,16 @@
 {
   "name": "h5-hybridapp-bridge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": " 原生 APP 通过 JSBridge 与 H5 交互",
+  "homepage": "https://github.com/impengmoumou/h5-hybridapp-bridge#readme",
   "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/impengmoumou/h5-hybridapp-bridge"
+  },
   "scripts": {
     "test": "webpack serve --config webpack.dev.js",
-    "build": "webpack"
+    "build": "webpack --config ./webpack.dev.js"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.13.10",
@@ -20,12 +25,12 @@
     "style-loader": "^1.0.0",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^3.11.2",
     "antd-mobile": "^2.3.4",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
     "vconsole": "^3.7.0"
   },
   "author": "Rachel",
