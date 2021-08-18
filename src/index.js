@@ -81,6 +81,15 @@ class H5HybridAppBridge {
     });
   }
 
+  /**
+   * 获取app传入的必要数据
+   * @param type 调用事件type
+   * @param params 调用事件传参
+   * @param callback 成功回调函数
+   * @param errCallback 失败回调函数
+   * @param times 超时限制
+   * @param intervalTimes 间隔调用时间
+   */
   getAppInfo(
     type,
     params = {},
@@ -111,7 +120,7 @@ class H5HybridAppBridge {
         clearTimeout(this.timer);
         clearInterval(this.intervalTimer);
         if (callback) {
-          callback();
+          callback(data);
         }
       });
     }, intervalTimes);

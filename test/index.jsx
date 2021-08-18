@@ -21,7 +21,13 @@ const Test = () => {
           bridge.getAppInfo(
             "getAppReferralInfo",
             {},
-            () => {
+            (data) => {
+              console.log(data);
+              if (!data.privacyStatus) {
+                console.log("TermsCom");
+              } else {
+                console.log("ActivityCom");
+              }
               Toast.hide();
             },
             () => {
