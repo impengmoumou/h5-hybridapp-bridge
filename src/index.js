@@ -13,7 +13,8 @@ class H5HybridAppBridge {
     const isDebugger = this.getUrlSearchValue("debug") === "1";
     // 本地开发：显示控制台
     if (this.showConsole && (isDebugger || this.NODE_ENV === "development")) {
-      const vConsole = new VConsole();
+      const VConsole = require("vconsole");
+      new VConsole();
     }
 
     this.reloadUrl = options.reloadUrl || "app://reloadURL";

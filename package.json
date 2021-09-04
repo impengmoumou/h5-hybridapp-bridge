@@ -1,6 +1,6 @@
 {
   "name": "h5-hybridapp-bridge",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "原生 APP 通过 JSBridge 与 H5 交互",
   "homepage": "https://github.com/impengmoumou/h5-hybridapp-bridge#readme",
   "main": "core.min.js",

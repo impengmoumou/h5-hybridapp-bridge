@@ -6,6 +6,8 @@ module.exports = {
   output: {
     filename: "core.min.js",
     path: path.resolve(__dirname),
+    library: "h5-hybridapp-bridge",
+    libraryTarget: "umd",
   },
   module: {
     rules: [

@@ -5,15 +5,9 @@ import H5HybridAppBridge from "../src/index.js";
 
 const bridge = new H5HybridAppBridge({
   webDev: true,
+  showConsole: true,
   NODE_ENV: "development",
 });
-
-const isDebugger = bridge.getUrlSearchValue("debug") === "1";
-// 本地开发：显示控制台
-if (isDebugger) {
-  const VConsole = require("vconsole");
-  new VConsole();
-}
 
 const Test = () => {
   const [showModal, setShowModal] = useState(false);
