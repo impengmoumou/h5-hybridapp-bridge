@@ -3,8 +3,17 @@ import ReactDOM from "react-dom";
 import { Button, Modal, Toast } from "antd-mobile";
 import H5HybridAppBridge from "../src/index.js";
 
-const isWeb = false;
-const bridge = new H5HybridAppBridge({ isWeb, showConsole: true });
+const bridge = new H5HybridAppBridge({
+  webDev: true,
+  NODE_ENV: "development",
+});
+
+const isDebugger = bridge.getUrlSearchValue("debug") === "1";
+// 本地开发：显示控制台
+if (isDebugger) {
+  const VConsole = require("vconsole");
+  new VConsole();
+}
 
 const Test = () => {
   const [showModal, setShowModal] = useState(false);
@@ -144,7 +153,7 @@ const Test = () => {
       <Modal
         visible={showModal}
         transparent
-        maskClosable={isWeb}
+        maskClosable={bridge.isWeb}
         onClose={() => setShowModal(false)}
         footer={[
           {

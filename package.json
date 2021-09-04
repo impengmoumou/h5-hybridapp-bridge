@@ -1,34 +1,38 @@
 {
   "name": "h5-hybridapp-bridge",
-  "version": "1.0.3",
-  "description": " 原生 APP 通过 JSBridge 与 H5 交互",
+  "version": "1.1.0",
+  "description": "原生 APP 通过 JSBridge 与 H5 交互",
   "homepage": "https://github.com/impengmoumou/h5-hybridapp-bridge#readme",
-  "main": "./src/index.js",
+  "main": "core.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/impengmoumou/h5-hybridapp-bridge"
   },
   "scripts": {
-    "test": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config ./webpack.dev.js"
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "test": "rm -rf 'dist' & webpack --config ./webpack.dev.js",
+    "build": "webpack --config ./webpack.config.js"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.14",
     "@babel/plugin-transform-runtime": "^7.13.10",
-    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "antd-mobile": "^2.3.4",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
-    "css-loader": "^5.2.0",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.3.1",
+    "babel-preset-minify": "^0.5.1",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
     "html-withimg-loader": "^0.1.16",
-    "mini-css-extract-plugin": "^1.4.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2",
-    "antd-mobile": "^2.3.4",
+    "mini-css-extract-plugin": "^0.8.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "vconsole": "^3.7.0"

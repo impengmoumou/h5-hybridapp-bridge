@@ -1,13 +1,16 @@
-import { getUrlSearchValue } from "./utils.js";
-const VConsole = require("vconsole");
-const isDebugger = getUrlSearchValue("debug") === "1";
-
 class H5HybridAppBridge {
   constructor(options = {}) {
-    this.isWeb = options.isWeb || false;
-    this.NODE_ENV = options.NODE_ENV || "development";
-    this.showConsole = options.showConsole || false;
+    this.NODE_ENV = options.NODE_ENV;
 
+    this.webDev = options.webDev;
+    // 本地开发：web开发
+    this.isWeb =
+      this.webDev &&
+      this.NODE_ENV === "development" &&
+      this.getUrlSearchValue("web") === "1";
+
+    this.showConsole = options.showConsole;
+    const isDebugger = this.getUrlSearchValue("debug") === "1";
     // 本地开发：显示控制台
     if (this.showConsole && (isDebugger || this.NODE_ENV === "development")) {
       const vConsole = new VConsole();
@@ -206,6 +209,29 @@ class H5HybridAppBridge {
     }
     window.location.href = url;
   }
+  /**
+   * 获取路径参数值
+   * @param {string} name 参数字符串
+   */
+  getUrlSearchValue(name) {
+    const href = window.location.href;
+    const hs = href.split("?");
+    if (hs.length > 1) {
+      const needStr = hs[1];
+      const ns = needStr.split("&");
+      for (let i = 0; i < ns.length; i++) {
+        const n = ns[i];
+        const t = n.split("=");
+
+        if (t.length > 1) {
+          if (name == t[0]) {
+            return t[1];
+          }
+        }
+      }
+    }
+  }
 }
+export { H5HybridAppBridge };
 
 export default H5HybridAppBridge;

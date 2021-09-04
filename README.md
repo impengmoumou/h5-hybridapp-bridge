@@ -16,4 +16,12 @@
 
 ### 测试
 
+`npm start`
+
+### 打包测试页面
+
 `npm run test`
+
+### 打包编译
+
+`npm run build`
